@@ -19,7 +19,7 @@ ark-std = { version = "0.3.0" }
 
 # halo2
 halo2_proofs = { git = "https://github.com/privacy-scaling-explorations/halo2.git", tag = "v2022_09_10" }
-halo2curves = { git = "https://github.com/jonathanpwang/halo2curves.git", package = "halo2curves" }
+halo2curves = { git = "https://github.com/kroma-network/halo2curves.git", package = "halo2curves", rev = "c0ac193"}
 halo2_base = { path = "../halo2_base", default-features = false }
 
 # memory allocation
