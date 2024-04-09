@@ -160,6 +160,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8d696c370c750c948ada61c69a0ee2cbbb9c50b1019ddb86d9317157a99c2cae"
 
 [[package]]
+name = "bls12_381"
+version = "0.8.0"
+source = "git+https://github.com/kroma-network/bls12_381?branch=feat/upstream-scroll-v0.10.0rc3#0bec3a5ed5966342ac637ad2f574dd9a103232ff"
+dependencies = [
+ "ff 0.13.0",
+ "group 0.13.0",
+ "pairing",
+ "pasta_curves 0.5.1",
+ "rand_core",
+ "subtle",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -910,8 +923,8 @@ dependencies = [
  "criterion",
  "criterion-macro",
  "ff 0.13.0",
- "halo2_proofs 0.2.0 (git+https://github.com/axiom-crypto/halo2.git?tag=v2023_01_17)",
- "halo2_proofs 0.2.0 (git+https://github.com/scroll-tech/halo2.git?branch=v1.1)",
+ "halo2_proofs 0.2.0",
+ "halo2_proofs 1.1.0",
  "itertools",
  "jemallocator",
  "mimalloc",
@@ -967,8 +980,8 @@ dependencies = [
 
 [[package]]
 name = "halo2_proofs"
-version = "0.2.0"
-source = "git+https://github.com/scroll-tech/halo2.git?branch=v1.1#84003a202d6b9185c952ec91ea793dbbd6c5b200"
+version = "1.1.0"
+source = "git+https://github.com/kroma-network/halo2.git?branch=feat/upstream-scroll-v0.10.0rc3#fc703d2ad0ce4f0e26637cc8bc27842500baaf3d"
 dependencies = [
  "ark-std",
  "blake2b_simd",
@@ -978,10 +991,12 @@ dependencies = [
  "group 0.13.0",
  "halo2curves 0.1.0",
  "log",
+ "maybe-rayon",
  "num-bigint",
  "num-integer",
  "plotters",
  "poseidon",
+ "rand_chacha",
  "rand_core",
  "rayon",
  "sha3",
@@ -993,13 +1008,14 @@ dependencies = [
 [[package]]
 name = "halo2curves"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6b1142bd1059aacde1b477e0c80c142910f1ceae67fc619311d6a17428007ab"
+source = "git+https://github.com/kroma-network/halo2curves.git?branch=feat/upstream-scroll-v0.10.0rc3#dcb8aff5721fe9d82f9960a65800769794b4f75f"
 dependencies = [
  "blake2b_simd",
+ "bls12_381",
  "ff 0.13.0",
  "group 0.13.0",
  "lazy_static",
+ "maybe-rayon",
  "num-bigint",
  "num-traits",
  "pasta_curves 0.5.1",
@@ -1294,6 +1310,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "maybe-rayon"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ea1f30cedd69f0a2954655f7188c6a834246d2bcf1e315e2ac40c4b24dc9519"
+dependencies = [
+ "cfg-if 1.0.0",
+ "rayon",
+]
+
+[[package]]
 name = "memchr"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1451,6 +1477,15 @@ name = "os_str_bytes"
 version = "6.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ceedf44fb00f2d1984b0bc98102627ce622e083e49a5bacdb3e514fa4238e267"
+
+[[package]]
+name = "pairing"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81fec4625e73cf41ef4bb6846cafa6d44736525f442ba45e407c4a000a13996f"
+dependencies = [
+ "group 0.13.0",
+]
 
 [[package]]
 name = "parking_lot"
@@ -1614,7 +1649,7 @@ dependencies = [
 [[package]]
 name = "poseidon"
 version = "0.2.0"
-source = "git+https://github.com/scroll-tech/poseidon.git?branch=main#5787dd3d2ce7a9e9601a035c396ac0c03449b54d"
+source = "git+https://github.com/kroma-network/poseidon.git?branch=feat/upstream-scroll-v0.10.0rc3#4e419eb05a06783957df5ff751181cbf72ceb943"
 dependencies = [
  "halo2curves 0.1.0",
  "subtle",
