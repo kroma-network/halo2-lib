@@ -910,8 +910,8 @@ dependencies = [
  "criterion",
  "criterion-macro",
  "ff 0.13.0",
- "halo2_proofs 0.2.0 (git+https://github.com/axiom-crypto/halo2.git?tag=v2023_01_17)",
- "halo2_proofs 0.2.0 (git+https://github.com/scroll-tech/halo2.git?branch=v1.1)",
+ "halo2_proofs 0.2.0",
+ "halo2_proofs 1.1.0",
  "itertools",
  "jemallocator",
  "mimalloc",
@@ -967,21 +967,25 @@ dependencies = [
 
 [[package]]
 name = "halo2_proofs"
-version = "0.2.0"
-source = "git+https://github.com/scroll-tech/halo2.git?branch=v1.1#84003a202d6b9185c952ec91ea793dbbd6c5b200"
+version = "1.1.0"
+source = "git+https://github.com/kroma-network/halo2.git?branch=scroll-halo2-v1.1-with-tachyon#0a9979453e8841523c468fe2e497c0076a942ce2"
 dependencies = [
  "ark-std",
  "blake2b_simd",
  "cfg-if 0.1.10",
  "crossbeam",
+ "cxx",
+ "cxx-build",
  "ff 0.13.0",
  "group 0.13.0",
  "halo2curves 0.1.0",
  "log",
+ "maybe-rayon",
  "num-bigint",
  "num-integer",
  "plotters",
  "poseidon",
+ "rand_chacha",
  "rand_core",
  "rayon",
  "sha3",
@@ -1291,6 +1295,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "abb12e687cfb44aa40f41fc3978ef76448f9b6038cad6aef4259d3c095a2382e"
 dependencies = [
  "cfg-if 1.0.0",
+]
+
+[[package]]
+name = "maybe-rayon"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ea1f30cedd69f0a2954655f7188c6a834246d2bcf1e315e2ac40c4b24dc9519"
+dependencies = [
+ "cfg-if 1.0.0",
+ "rayon",
 ]
 
 [[package]]
